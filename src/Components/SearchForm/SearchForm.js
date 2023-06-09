@@ -3,16 +3,13 @@ import {Link} from 'react-router-dom'
 import './SearchForm.css'
 
 
-const SearchForm = ({filepath, getSpecificBreed}) => {
+const SearchForm = ({getSpecificBreed}) => {
   const [searchPrompt, setSearchPrompt] = useState('')
-
-  const randomPathBreed = filepath.split('/')[4]
-
   const triggerQuery = (searchString) => {
     getSpecificBreed(searchString)
   }
 
-  return    (
+  return (
   <>
   <select className="breed-selector"
   onChange={event => setSearchPrompt(event.target.value)}
@@ -23,7 +20,7 @@ const SearchForm = ({filepath, getSpecificBreed}) => {
       <option value="airedale">airedale</option>
       <option value="akita">akita</option>
       <option value="appenzeller">appenzeller</option>
-      <option value="australian-shepherd">shepherd australian</option>
+      {/* <option value="australian-shepherd">shepherd australian</option> */}
       <option value="basenji">basenji</option>
       <option value="beagle">beagle</option>
       <option value="bluetick">bluetick</option>
@@ -32,34 +29,34 @@ const SearchForm = ({filepath, getSpecificBreed}) => {
       <option value="boxer">boxer</option>
       <option value="brabancon">brabancon</option>
       <option value="briard">briard</option>
-      <option value="buhund-norwegian">norwegian buhund</option>
+      {/* <option value="buhund-norwegian">norwegian buhund</option> */}
       {/* <option value="bulldog-boston">boston bulldog</option>
       <option value="bulldog-english">english bulldog</option>
       <option value="bulldog-french">french bulldog</option> */}
-      <option value="bullterrier-staffordshire">staffordshire bullterrier</option>
-      <option value="cattledog-australian">australian cattledog</option>
+      {/* <option value="bullterrier-staffordshire">staffordshire bullterrier</option> */}
+      {/* <option value="cattledog-australian">australian cattledog</option> */}
       <option value="chihuahua">chihuahua</option>
       <option value="chow">chow</option>
       <option value="clumber">clumber</option>
       <option value="cockapoo">cockapoo</option>
-      <option value="collie-border">border collie</option>
+      {/* <option value="collie-border">border collie</option> */}
       <option value="coonhound">coonhound</option>
-      <option value="corgi-cardigan">cardigan corgi</option>
+      {/* <option value="corgi-cardigan">cardigan corgi</option> */}
       <option value="cotondetulear">cotondetulear</option>
       <option value="dachshund">dachshund</option>
       <option value="dalmatian">dalmatian</option>
-      <option value="dane-great">great dane</option>
-      <option value="deerhound-scottish">scottish deerhound</option>
+      {/* <option value="dane-great">great dane</option> */}
+      {/* <option value="deerhound-scottish">scottish deerhound</option> */}
       <option value="dhole">dhole</option>
       <option value="dingo">dingo</option>
       <option value="doberman">doberman</option>
-      <option value="elkhound-norwegian">norwegian elkhound</option>
+      {/* <option value="elkhound-norwegian">norwegian elkhound</option>   */}
       <option value="entlebucher">entlebucher</option>
       <option value="eskimo">eskimo</option>
-      <option value="finnish-lapphund">lapphund finnish</option>
-      <option value="frise-bichon">bichon frise</option>
+      {/* <option value="finnish-lapphund">lapphund finnish</option> */}
+      {/* <option value="frise-bichon">bichon frise</option> */}
       <option value="germanshepherd">germanshepherd</option>
-      <option value="greyhound-italian">italian greyhound</option>
+      {/* <option value="greyhound-italian">italian greyhound</option>  */}
       <option value="groenendael">groenendael</option>
       <option value="havanese">havanese</option>
       {/* <option value="hound-afghan">afghan hound</option>
@@ -86,15 +83,15 @@ const SearchForm = ({filepath, getSpecificBreed}) => {
       <option value="mastiff-tibetan">tibetan mastiff</option> */}
       <option value="mexicanhairless">mexicanhairless</option>
       <option value="mix">mix</option>
-      <option value="mountain-bernese">bernese mountain</option>
-      <option value="mountain-swiss">swiss mountain</option>
+      {/* <option value="mountain-bernese">bernese mountain</option>
+      <option value="mountain-swiss">swiss mountain</option> */}
       <option value="newfoundland">newfoundland</option>
       <option value="otterhound">otterhound</option>
-      <option value="ovcharka-caucasian">caucasian ovcharka</option>
+      {/* <option value="ovcharka-caucasian">caucasian ovcharka</option> */}
       <option value="papillon">papillon</option>
       <option value="pekinese">pekinese</option>
       <option value="pembroke">pembroke</option>
-      <option value="pinscher-miniature">miniature pinscher</option>
+      {/* <option value="pinscher-miniature">miniature pinscher</option> */}
       <option value="pitbull">pitbull</option>
       {/* <option value="pointer-german">german pointer</option>
       <option value="pointer-germanlonghair">germanlonghair pointer</option> */}
@@ -111,20 +108,20 @@ const SearchForm = ({filepath, getSpecificBreed}) => {
       <option value="retriever-curly">curly retriever</option>
       <option value="retriever-flatcoated">flatcoated retriever</option>
       <option value="retriever-golden">golden retriever</option> */}
-      <option value="ridgeback-rhodesian">rhodesian ridgeback</option>
+      {/* <option value="ridgeback-rhodesian">rhodesian ridgeback</option> */}
       <option value="rottweiler">rottweiler</option>
       <option value="saluki">saluki</option>
       <option value="samoyed">samoyed</option>
       <option value="schipperke">schipperke</option>
-      <option value="schnauzer-giant">giant schnauzer</option>
-      <option value="schnauzer-miniature">miniature schnauzer</option>
-      <option value="segugio-italian">italian segugio</option>
+      {/* <option value="schnauzer-giant">giant schnauzer</option>
+      <option value="schnauzer-miniature">miniature schnauzer</option> */}
+      {/* <option value="segugio-italian">italian segugio</option> */}
       {/* <option value="setter-english">english setter</option>
       <option value="setter-gordon">gordon setter</option>
       <option value="setter-irish">irish setter</option> */}
       <option value="sharpei">sharpei</option>
-      <option value="sheepdog-english">english sheepdog</option>
-      <option value="sheepdog-shetland">shetland sheepdog</option>
+      {/* <option value="sheepdog-english">english sheepdog</option>
+      <option value="sheepdog-shetland">shetland sheepdog</option> */}
       <option value="shiba">shiba</option>
       <option value="shihtzu">shihtzu</option>
       {/* <option value="spaniel-blenheim">blenheim spaniel</option>
@@ -134,12 +131,12 @@ const SearchForm = ({filepath, getSpecificBreed}) => {
       <option value="spaniel-japanese">japanese spaniel</option>
       <option value="spaniel-sussex">sussex spaniel</option>
       <option value="spaniel-welsh">welsh spaniel</option> */}
-      <option value="spitz-japanese">japanese spitz</option>
-      <option value="springer-english">english springer</option>
+      {/* <option value="spitz-japanese">japanese spitz</option> */}
+      {/* <option value="springer-english">english springer</option> */}
       <option value="stbernard">stbernard</option>
       <option value="tervuren">tervuren</option>
       <option value="vizsla">vizsla</option>
-      <option value="waterdog-spanish">spanish waterdog</option>
+      {/* <option value="waterdog-spanish">spanish waterdog</option> */}
       <option value="weimaraner">weimaraner</option>
       <option value="whippet">whippet</option>
       <option value="wolfhound-irish">irish wolfhound</option>

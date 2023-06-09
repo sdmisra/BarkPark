@@ -1,19 +1,28 @@
-import React from 'react'
-import {Redirect} from 'react-router-dom'
+import React, {useState, useEffect} from 'react'
+import { Redirect } from 'react-router-dom'
+import DogCard from '../DogCard/DogCard'
 import './Results.css'
 
-const Results = ({error, searchResults}) => {
+const Results = ({searchResults}) => {
 
-  if (error) {
+  const resultsMap = searchResults.map((result, i )=> {
+    console.log(result)
     return (
-      <Redirect to='/error/'/>
+      <DogCard path={result[i]} key={i}/>
+    )
+  })
+
+  if (searchResults.length === 0) {
+    return (
+      <Redirect to="/"/>
     )
   }
 
+  console.log(resultsMap)
   return (
-    <>
-    <div>Results</div>
-    </>
+    <div className="dog-card-container">
+    {resultsMap}
+    </div>
   )
 }
 

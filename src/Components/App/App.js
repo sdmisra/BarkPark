@@ -50,7 +50,7 @@ const App = () => {
 
 
   return (
-    <div className="main-body">
+    <div className="App">
     <Header />
     <Switch>
       <Route exact path='/'>
@@ -59,7 +59,7 @@ const App = () => {
         filepath={displayedDog} 
         getSpecificBreed={getSpecificBreed} />
       </Route>
-      <Route path='/results/:breed'>
+      <Route path='/results/:breedprompt'>
         <Results searchResults={searchResults}/>
       </Route>
       <Route path='/saved'>
