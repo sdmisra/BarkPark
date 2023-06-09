@@ -1,3 +1,17 @@
+.random-dog-window {
+  display:flex;
+  flex-direction: column;
+  align-items: center;
+  border: 1px black solid;
+  border-radius: .37rem;
+  background-color: slategrey;
+  padding: 1rem;
+  width: 80vw;    
+  height: 90vh;
+}
+
 .random-dog-image {
-  width: 400px;
+  border: 1rem aliceblue solid;
+  max-height:500px;
+  max-width: 400px;
 }

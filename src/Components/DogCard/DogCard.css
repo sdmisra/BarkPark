@@ -1,4 +1,17 @@
+.dog-card {
+  display:flex;
+  flex-direction: column;
+  align-items: center;
+}
+
 .card-photo {
-  height: 200px;
-  width: 300px;
+  border: 1px black solid;
+  border-radius: .5rem;
+  height: 150px;
+  width: 200px;
+  margin: 1rem;
+}
+
+.save-button {
+  width: 6rem;
 }
