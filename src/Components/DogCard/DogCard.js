@@ -8,7 +8,7 @@ const DogCard = ({path, saveDogPhoto, unSaveDogPhoto, id, saved = false}) => {
     <div className="dog-card" >
       <img className="card-photo" src={path}/>
       <button 
-      className='save-button'
+      className='delete-button'
       onClick={()=> {unSaveDogPhoto(id)}}>Remove Picture!</button>
     </div>
 )} else {

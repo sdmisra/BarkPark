@@ -8,7 +8,7 @@ const SavedPooches = ({savedDogs, unSaveDogPhoto}) => {
     savedCards = savedDogs?.map(uniqueDogObject=> {
       console.log(uniqueDogObject)
       return (
-        <DogCard id={uniqueDogObject} path={uniqueDogObject.path} key={uniqueDogObject.num} breed={uniqueDogObject.breedType} unSaveDogPhoto={unSaveDogPhoto} saved={true}/>
+        <DogCard id={uniqueDogObject} path={uniqueDogObject.path} key={uniqueDogObject.num+1} breed={uniqueDogObject.breedType} unSaveDogPhoto={unSaveDogPhoto} saved={true}/>
       )
     })
   }
@@ -16,7 +16,7 @@ const SavedPooches = ({savedDogs, unSaveDogPhoto}) => {
 
   if (savedDogs.length === 0) {
     return (
-      <h2>No dog pictures are currently saved! Please hit the Welcome Banner to start searching and saving.</h2>
+      <h2 className="error-message">No dog pictures are currently saved! Please hit the Welcome Banner to start searching and saving.</h2>
     )
   }
 

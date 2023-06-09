@@ -16,7 +16,7 @@ const Results = ({searchResults, getSpecificBreed, breed, saveDogPhoto}) => {
 
   if (searchResults.length === 0) {
     return (
-      <h2>No Results! Please Click the Header to try again!</h2>
+      <h2 className="error-message">No Results! Please Click the Header to try again!</h2>
     )
   }
   return (
@@ -26,7 +26,7 @@ const Results = ({searchResults, getSpecificBreed, breed, saveDogPhoto}) => {
       onClick={()=> {
         getSpecificBreed(breed)
       }}>
-        Click for more {breed}s:</button>
+        Click for more ({breed}s):</button>
       </span>
     <div className="dog-card-container">
     {resultsMap}

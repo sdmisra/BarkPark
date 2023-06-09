@@ -1,4 +1,4 @@
-import React, {useEffect, useState} from 'react'
+import React, {useState} from 'react'
 import {Link} from 'react-router-dom'
 import './SearchForm.css'
 
@@ -165,7 +165,7 @@ const SearchForm = ({getSpecificBreed}) => {
       <option value="terrier-wheaten">wheaten terrier</option>
       <option value="terrier-yorkshire">yorkshire terrier</option>
     </select>
-    <button onClick={(event)=> {triggerQuery(event, searchPrompt)}}>
+    <button className="search-button" onClick={(event)=> {triggerQuery(event, searchPrompt)}}>
     <Link to={`/${searchPrompt}`}>
       Search!
     </Link>
