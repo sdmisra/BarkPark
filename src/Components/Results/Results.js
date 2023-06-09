@@ -3,22 +3,22 @@ import { Redirect } from 'react-router-dom'
 import DogCard from '../DogCard/DogCard'
 import './Results.css'
 
-const Results = ({searchResults, getSpecificBreed, breed}) => {
-
-  const resultsMap = searchResults.map((result, i )=> {
-    console.log(result)
-    return (
-      <DogCard path={result} key={i}/>
-    )
-  })
+const Results = ({searchResults, getSpecificBreed, breed, saveDogPhoto}) => {
+  let resultsMap;
+  if (searchResults.length > 0) {
+    resultsMap = searchResults?.map((url, i)=> {
+      const uniqueDogObject = {num: i, breedType: breed, path: url}
+      return (
+        <DogCard path={url} key={i} saveDogPhoto={saveDogPhoto} id={uniqueDogObject} breed={breed}/>
+      )
+    })
+  }
 
   if (searchResults.length === 0) {
     return (
       <h2>No Results! Please Click the Header to try again!</h2>
     )
   }
-
-  console.log(resultsMap)
   return (
     <>
       <span><button 

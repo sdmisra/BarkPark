@@ -5,12 +5,14 @@ import Header from  '../Header/Header'
 import Footer from '../Footer/Footer'
 import SearchForm from '../SearchForm/SearchForm';
 import Results from '../Results/Results';
+import SavedPooches from '../SavedPooches/SavedPooches';
 
 import './App.css';
 
 const App = () => {
   const [displayedDog, setDisplayedDog] = useState('')
   const [searchResults, setSearchResults] = useState([])
+  const [savedDogs, setSavedDogs] = useState([])
 
   const getRandomDog = async () => {
     try {
@@ -27,19 +29,33 @@ const App = () => {
   }
 
   const getSpecificBreed = async (breed) => {
-    console.log(breed)
+    let url = `https://dog.ceo/api/breed/${breed}/images/random/12`
+    if (breed.includes('-')) {
+      const splitName = breed.split('-')
+      url = `https://dog.ceo/api/breed/${splitName[0]}/${splitName[1]}/images/random/12`
+    }
     try {
-      const response = await fetch(`https://dog.ceo/api/breed/${breed}/images/random/12`);
+      const response = await fetch(url);
       if (response.status === 'error') {
         throw new Error(`Error in Specific Call! status: ${response.status}`)
       }
       const dozenDoggos = await response.json()
-      console.log(dozenDoggos.message)
       setSearchResults(dozenDoggos.message)
       return dozenDoggos;
     } catch(error) {
       return error
     }
+  }
+
+  const saveDogPhoto = (dogObject) => {
+    setSavedDogs([...savedDogs, dogObject])
+  }
+
+  const unSaveDogPhoto = (dogObject) => {
+    console.log('saved dogs before:', savedDogs)
+    console.log('remove:', dogObject)
+    const allButClicked = savedDogs.filter(object => object !== dogObject)
+    setSavedDogs(allButClicked)
   }
 
   useEffect(()=> {
@@ -55,9 +71,14 @@ const App = () => {
     <Switch>
       <Route exact path='/'>
         <HomePage filepath={displayedDog} getRandomDog={getRandomDog}/>
-        <SearchForm filepath={displayedDog} getSpecificBreed={getSpecificBreed} />
+        <SearchForm 
+        filepath={displayedDog} 
+        getSpecificBreed={getSpecificBreed} />
       </Route>
       <Route exact path='/saved'>
+        <SavedPooches 
+        savedDogs={savedDogs} 
+        unSaveDogPhoto={unSaveDogPhoto}/>
       </Route>
       <Route path='/:breedname' render={
         ({match})=> {
@@ -65,7 +86,11 @@ const App = () => {
           if (searchResults.length === 0) {
             getSpecificBreed(breed)
           }
-           return <Results getSpecificBreed={getSpecificBreed}searchResults={searchResults} breed={breed}/>
+           return <Results 
+           getSpecificBreed={getSpecificBreed}
+           searchResults={searchResults} 
+           breed={breed} 
+           saveDogPhoto={saveDogPhoto}/>
         }
       }>
       </Route>

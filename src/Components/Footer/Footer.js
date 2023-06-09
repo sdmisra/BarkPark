@@ -1,11 +1,14 @@
 import React from 'react'
+import {Link} from 'react-router-dom'
 import './Footer.css'
 
 const Footer = () => {
   return (
+    <Link to='/saved'>
     <footer className="app-footer">
-      <h1>Thanks to the <a href="https://dog.ceo/dog-api/">Dog CEO API</a>for all images</h1>
+      <h1>Click for Saved Pooches</h1>
     </footer>
+    </Link>
   )
 }
 
