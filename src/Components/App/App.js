@@ -29,6 +29,9 @@ const App = () => {
   }
 
   const getSpecificBreed = async (breed) => {
+    if (breed === '') {
+      return
+    }
     let url = `https://dog.ceo/api/breed/${breed}/images/random/12`
     if (breed.includes('-')) {
       const splitName = breed.split('-')
@@ -48,12 +51,12 @@ const App = () => {
   }
 
   const saveDogPhoto = (dogObject) => {
+    const allButClicked = searchResults.filter(path=> path !== dogObject.path)
+    setSearchResults(allButClicked)
     setSavedDogs([...savedDogs, dogObject])
   }
 
   const unSaveDogPhoto = (dogObject) => {
-    console.log('saved dogs before:', savedDogs)
-    console.log('remove:', dogObject)
     const allButClicked = savedDogs.filter(object => object !== dogObject)
     setSavedDogs(allButClicked)
   }
@@ -95,7 +98,7 @@ const App = () => {
       }>
       </Route>
     </Switch>
-    <Footer/>
+    <Footer saved={savedDogs}/>
     </div>
   );
 }
