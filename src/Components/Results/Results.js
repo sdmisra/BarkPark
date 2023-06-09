@@ -5,10 +5,10 @@ import './Results.css'
 
 const Results = ({searchResults}) => {
 
-  const resultsMap = searchResults.map((result, i )=> {
+  const resultsMap = searchResults?.map((result, i )=> {
     console.log(result)
     return (
-      <DogCard path={result[i]} key={i}/>
+      <DogCard path={result} key={i}/>
     )
   })
 

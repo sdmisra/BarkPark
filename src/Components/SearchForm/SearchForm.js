@@ -5,7 +5,8 @@ import './SearchForm.css'
 
 const SearchForm = ({getSpecificBreed}) => {
   const [searchPrompt, setSearchPrompt] = useState('')
-  const triggerQuery = (searchString) => {
+  const triggerQuery = (event, searchString) => {
+    event.preventDefault();
     getSpecificBreed(searchString)
   }
 
@@ -166,9 +167,11 @@ const SearchForm = ({getSpecificBreed}) => {
       <option value="terrier-wheaten">wheaten terrier</option>
       <option value="terrier-yorkshire">yorkshire terrier</option>
     </select> */}
+    <button onClick={(event)=> {triggerQuery(event, searchPrompt)}}>
     <Link to={`/results/${searchPrompt}`}>
-    <button onClick={()=> {triggerQuery(searchPrompt)}}>Search!</button>
+      Search!
     </Link>
+      </button>
     </>
   )
 }

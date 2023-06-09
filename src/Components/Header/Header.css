@@ -1,3 +1,16 @@
+.app-header {
+  border: .38rem rgba(65, 105, 225, 0.615) solid;
+  border-radius: .45rem;
+  background-color: rgba(102, 51, 153, 0.39);
+  padding: .15rem;
+  margin-bottom: 1rem;
+}
+
 .app-title {
-  
+  font-family:'Times New Roman', Times, serif;
+}
+
+.link-style {
+  text-decoration: none;
+  color: bisque;
 }

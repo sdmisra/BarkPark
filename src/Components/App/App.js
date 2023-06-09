@@ -34,8 +34,8 @@ const App = () => {
         throw new Error(`Error in Specific Call! status: ${response.status}`)
       }
       const dozenDoggos = await response.json()
-      console.log(dozenDoggos)
-      setSearchResults([dozenDoggos.message])
+      console.log(dozenDoggos.message)
+      setSearchResults(dozenDoggos.message)
       return dozenDoggos;
     } catch(error) {
       return error
