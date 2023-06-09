@@ -55,14 +55,19 @@ const App = () => {
     <Switch>
       <Route exact path='/'>
         <HomePage filepath={displayedDog} getRandomDog={getRandomDog}/>
-        <SearchForm 
-        filepath={displayedDog} 
-        getSpecificBreed={getSpecificBreed} />
+        <SearchForm filepath={displayedDog} getSpecificBreed={getSpecificBreed} />
       </Route>
-      <Route path='/results/:breedprompt'>
-        <Results searchResults={searchResults}/>
+      <Route exact path='/saved'>
       </Route>
-      <Route path='/saved'>
+      <Route path='/:breedname' render={
+        ({match})=> {
+          const breed = match.params.breedname
+          if (searchResults.length === 0) {
+            getSpecificBreed(breed)
+          }
+           return <Results getSpecificBreed={getSpecificBreed}searchResults={searchResults} breed={breed}/>
+        }
+      }>
       </Route>
     </Switch>
     <Footer/>

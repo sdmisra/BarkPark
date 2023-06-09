@@ -168,7 +168,7 @@ const SearchForm = ({getSpecificBreed}) => {
       <option value="terrier-yorkshire">yorkshire terrier</option>
     </select> */}
     <button onClick={(event)=> {triggerQuery(event, searchPrompt)}}>
-    <Link to={`/results/${searchPrompt}`}>
+    <Link to={`/${searchPrompt}`}>
       Search!
     </Link>
       </button>
