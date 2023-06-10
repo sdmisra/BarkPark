@@ -14,7 +14,7 @@ const SearchForm = ({getSpecificBreed}) => {
   <>
   <select className="breed-selector"
   onChange={event => setSearchPrompt(event.target.value)}
-  defaultValue={''}>
+  defaultValue={''} id='selector'>
       <option value='' disabled>Choose a Breed:</option>
       <option value="affenpinscher">affenpinscher</option>
       <option value="african">african</option>

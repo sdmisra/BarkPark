@@ -1,5 +1,5 @@
-import React, {useState, useEffect} from 'react'
-import { Redirect } from 'react-router-dom'
+import React from 'react'
+import PropTypes from 'prop-types'
 import DogCard from '../DogCard/DogCard'
 import './Results.css'
 
@@ -36,3 +36,10 @@ const Results = ({searchResults, getSpecificBreed, breed, saveDogPhoto}) => {
 }
 
 export default Results
+
+Results.propTypes = {
+  searchResults: PropTypes.array.isRequired,
+  getSpecificBreed: PropTypes.func.isRequired,
+  breed: PropTypes.string.isRequired,
+  saveDogPhoto: PropTypes.func.isRequired
+}

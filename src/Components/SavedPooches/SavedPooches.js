@@ -1,4 +1,5 @@
 import React from 'react'
+import PropTypes from 'prop-types'
 import DogCard from '../DogCard/DogCard'
 import './SavedPooches.css'
 
@@ -30,3 +31,8 @@ const SavedPooches = ({savedDogs, unSaveDogPhoto}) => {
 
 
 export default SavedPooches;
+
+SavedPooches.propTypes = {
+  savedDogs: PropTypes.array.isRequired,
+  unSaveDogPhoto: PropTypes.func.isRequired
+}

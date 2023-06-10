@@ -98,7 +98,7 @@ const App = () => {
       }>
       </Route>
     </Switch>
-    <Footer saved={savedDogs}/>
+    <Footer/>
     </div>
   );
 }
